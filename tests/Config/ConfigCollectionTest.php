@@ -42,6 +42,6 @@ class ConfigCollectionTest extends TestCase
         $result = $this->collection->getCacheConfig('cacheOne');
 
         $this->assertInstanceOf(Config::class, $result);
-        $this->assertEquals('cacheOne', $result->getType());
+        $this->assertEquals('cacheOneType', $result->getType());
     }
 }

@@ -7,6 +7,7 @@ namespace WShafer\PSR11PhpCacheTests\Config;
 use PHPUnit\Framework\TestCase;
 use WShafer\PSR11PhpCache\Config\Config;
 use WShafer\PSR11PhpCache\Config\ConfigCollection;
+use WShafer\PSR11PhpCache\Exception\InvalidConfigException;
 
 /**
  * @covers \WShafer\PSR11PhpCache\Config\ConfigCollection
@@ -43,5 +44,11 @@ class ConfigCollectionTest extends TestCase
 
         $this->assertInstanceOf(Config::class, $result);
         $this->assertEquals('cacheOneType', $result->getType());
+    }
+
+    public function testGetCacheConfigNotFound(): void
+    {
+        $this->expectException(InvalidConfigException::class);
+        $this->collection->getCacheConfig('not-found');
     }
 }

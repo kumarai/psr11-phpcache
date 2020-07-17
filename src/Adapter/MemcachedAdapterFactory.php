@@ -117,6 +117,6 @@ class MemcachedAdapterFactory implements FactoryInterface
             }
         }
 
-        $instance->addServer($host, $port, $weight);
+        $instance->addServer($host, (int) $port, $weight);
     }
 }

@@ -71,7 +71,7 @@ class RedisAdapterFactory implements FactoryInterface
     {
         $server = $options['server'] ?? [];
         $host = $server['host'] ?? null;
-        $port = $server['port'] ?? 6379;
+        $port = (int) ($server['port'] ?? 6379);
         $timeout = $server['timeout'] ?? 0.0;
         $persistent = $server['persistent'] ?? true;
         $persistentId = $server['persistentId'] ?? 'phpcache';
